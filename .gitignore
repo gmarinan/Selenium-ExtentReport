@@ -1,0 +1,16 @@
+*.iml
+.idea
+*.pdf
+*.png
+*.jpg
+.settings
+.project
+.classpath
+tmp
+descargas
+
+# Archivos de proyecto
+target/
+test-output/
+HTMLREPORTS/
+tmp/
