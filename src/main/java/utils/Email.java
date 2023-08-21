@@ -160,7 +160,8 @@ public class Email {
         return  password;
     }
 
-
+    
+    @SuppressWarnings("unused")
     public static String downloadEmailAttachments(String userName, String password, String asunto)  {
         String host = "pop.gmail.com";
         String port = "995";

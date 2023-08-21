@@ -45,7 +45,7 @@ public class Web {
     }
 
     public static boolean validaElemento(WebElement objecto) {
-        boolean estado = false, existe = false;
+        boolean estado = false;
         boolean elemento = false;
         int intentos = 0;
         do {

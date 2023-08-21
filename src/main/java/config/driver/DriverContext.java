@@ -33,19 +33,10 @@ public class DriverContext {
         return driverManager.resolveDriver(nav, ambURL);
     }
 
-    public static void setUpMobile(String nav, String dispositivo, String grupo, String versionSO, String ambURL, String testName, String navegador, String username, String key) {
-        System.out.println("Iniciando Test");
-        System.out.println(nav);
-        setAmbienteURL(ambURL);
-        System.out.println(ambURL);
-        System.out.println("driver context");
-        driverManager.resolveDriverMobile(nav, dispositivo, grupo, versionSO, ambURL, testName, navegador, username, key);
-    }
-
     public static WebDriver getDriver() {
         return driverManager.getDriver();
     }
-
+    @SuppressWarnings("deprecation")
     public static void setDriverTimeout(Integer tiempo) {
         driverManager.getDriver().manage().timeouts().implicitlyWait((long) tiempo, TimeUnit.SECONDS);
     }
@@ -279,7 +270,8 @@ public class DriverContext {
         } else addWebReport("No se pudo encontrar el elemento: " + element, "", Status.FAIL);
     }
 
-
+    
+    @SuppressWarnings("deprecation")
     // Espera
     public static void esperar(int segundos) {
         System.out.println("Se pausa la ejecucion por " + segundos + " segundos.");

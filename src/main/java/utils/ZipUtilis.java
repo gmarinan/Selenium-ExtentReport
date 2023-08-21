@@ -66,41 +66,33 @@ public class ZipUtilis {
     public void zipIt(String zipFile) {
         byte[] buffer = new byte[1024];
         String source = new File(SOURCE_FOLDER).getName();
-        FileOutputStream fos = null;
-        ZipOutputStream zos = null;
         try {
-            fos = new FileOutputStream(zipFile);
-            zos = new ZipOutputStream(fos);
+            FileOutputStream fos = new FileOutputStream(zipFile);
+            ZipOutputStream zos = new ZipOutputStream(fos);
 
             System.out.println("Creando zip : " + zipFile);
-            FileInputStream in = null;
 
             for (String file: this.fileList) {
                 System.out.println("Comprimiendo : " + file);
                 ZipEntry ze = new ZipEntry(source + File.separator + file);
                 zos.putNextEntry(ze);
-                try {
-                    in = new FileInputStream(SOURCE_FOLDER + File.separator + file);
-                    int len;
-                    while ((len = in .read(buffer)) > 0) {
-                        zos.write(buffer, 0, len);
-                    }
-                } finally {
-                    in.close();
+                
+                
+                FileInputStream in = new FileInputStream(SOURCE_FOLDER + File.separator + file);
+                int len;
+                while ((len = in .read(buffer)) > 0) {
+                    zos.write(buffer, 0, len);
                 }
+                in.close();
             }
 
             zos.closeEntry();
             System.out.println("Carpeta de reporte comprimida exitosamente.");
+            
+            zos.close();
 
         } catch (IOException ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                zos.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 

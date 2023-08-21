@@ -16,14 +16,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.ITestContext;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -33,13 +30,11 @@ public class HtmlReport {
     private static ExtentTest test;
     public static ExtentSparkReporter spark;
     private static WebDriver driver;
-    private static final DateFormat dateFormat = new SimpleDateFormat("hhmmSSS");
     private static int paso;
     private static String suite;
     private static ArrayList<String> errorMessages;
     private static ArrayList<String> usedBrowsers;
     private static String URL_REPORT = "HTMLREPORTS\\";
-    private ITestContext testContext;
 
     public HtmlReport(String suiteName) {
         reports = new ExtentReports();
