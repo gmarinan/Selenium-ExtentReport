@@ -7,4 +7,10 @@
     <parameter name="url" value="https://www.google.cl/"/>
     <parameter name="carpetaReporte" value="C:\Selenium-Reports"/>
 
+
+    <test name="Pruebas Navegador: IExplorer" enabled="true">
+        <classes>
+            <class name="pruebas"/>
+        </classes>
+    </test>
 </suite>
